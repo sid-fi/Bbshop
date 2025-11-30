@@ -1,0 +1,79 @@
+import { useState, useEffect } from 'react';
+
+interface ShopStatusProps {
+  language: 'fr' | 'en';
+  isHoliday?: boolean;
+}
+
+export function ShopStatus({ language, isHoliday = false }: ShopStatusProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const checkIfOpen = () => {
+      if (isHoliday) {
+        setIsOpen(false);
+        return;
+      }
+
+      const now = new Date();
+      const day = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+      const hour = now.getHours();
+      const minutes = now.getMinutes();
+      const currentTime = hour + minutes / 60;
+
+      // Sunday = Closed
+      if (day === 0) {
+        setIsOpen(false);
+        return;
+      }
+
+      // Monday - Wednesday: 9:00 AM - 6:00 PM (9.0 - 18.0)
+      if (day >= 1 && day <= 3) {
+        setIsOpen(currentTime >= 9.0 && currentTime < 18.0);
+        return;
+      }
+
+      // Thursday - Friday: 9:00 AM - 7:00 PM (9.0 - 19.0)
+      if (day >= 4 && day <= 5) {
+        setIsOpen(currentTime >= 9.0 && currentTime < 19.0);
+        return;
+      }
+
+      // Saturday: 9:00 AM - 5:00 PM (9.0 - 17.0)
+      if (day === 6) {
+        setIsOpen(currentTime >= 9.0 && currentTime < 17.0);
+        return;
+      }
+
+      setIsOpen(false);
+    };
+
+    checkIfOpen();
+    const interval = setInterval(checkIfOpen, 60000); // Check every minute
+
+    return () => clearInterval(interval);
+  }, [isHoliday]);
+
+  const getStatusText = () => {
+    if (isHoliday) {
+      return language === 'fr' ? 'Fermé (Jour Férié)' : 'Closed (Holiday)';
+    }
+    return isOpen 
+      ? (language === 'fr' ? 'Ouvert' : 'Open')
+      : (language === 'fr' ? 'Fermé' : 'Closed');
+  };
+
+  const getStatusColor = () => {
+    if (isHoliday) {
+      return 'bg-gray-500';
+    }
+    return isOpen ? 'bg-green-500' : 'bg-red-500';
+  };
+
+  return (
+    <div className="flex items-center gap-2">
+      <div className={`w-3 h-3 rounded-full ${getStatusColor()} animate-pulse`}></div>
+      <span className="text-sm text-white">{getStatusText()}</span>
+    </div>
+  );
+}
