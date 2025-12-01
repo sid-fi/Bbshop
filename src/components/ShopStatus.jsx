@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react';
 
-interface ShopStatusProps {
-  language: 'fr' | 'en';
-  isHoliday?: boolean;
-}
-
-export function ShopStatus({ language, isHoliday = false }: ShopStatusProps) {
+export function ShopStatus({ language, isHoliday = false }) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {

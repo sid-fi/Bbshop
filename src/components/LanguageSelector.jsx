@@ -1,8 +1,4 @@
-interface LanguageSelectorProps {
-  onSelectLanguage: (language: 'fr' | 'en') => void;
-}
-
-export function LanguageSelector({ onSelectLanguage }: LanguageSelectorProps) {
+export function LanguageSelector({ onSelectLanguage }) {
   return (
     <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg shadow-2xl p-8 max-w-md w-full text-center">

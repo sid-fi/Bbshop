@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { LanguageSelector } from './components/LanguageSelector.jsx';
-import { ShopStatus } from './components/ShopStatus.jsx';
+import { LanguageSelector } from './components/LanguageSelector';
+import { ShopStatus } from './components/ShopStatus';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import { Phone, Clock, MapPin, CreditCard, Banknote, Bitcoin } from 'lucide-react';
 
@@ -28,7 +28,7 @@ const content = {
   en: {
     title: "Barbier Willy",
     welcome: "Welcome to Barbier Willy",
-    description: "Established in 1959, we’re a neighbourhood barbershop built on tradition, good conversation, and cuts that never go out of style.",
+    description: "Established in 1959, we're a neighbourhood barbershop built on tradition, good conversation, and cuts that never go out of style.",
     hours: "Business Hours",
     schedule: {
       monToWed: "Monday - Wednesday",
