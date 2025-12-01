@@ -48,13 +48,9 @@ const content = {
 };
 
 export default function App() {
-  const [language, setLanguage] = useState(null);
+  const [language, setLanguage] = useState('fr'); // For French default
   // Set to true if you want to show holiday status
   const isHoliday = false;
-
-  if (!language) {
-    return <LanguageSelector onSelectLanguage={setLanguage} />;
-  }
 
   const t = content[language];
   const phoneNumber = "(819) 685-2025";
