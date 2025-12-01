@@ -67,7 +67,7 @@ export function ShopStatus({ language, isHoliday = false }) {
 
   return (
     <div className="flex items-center gap-2">
-      <div className={`w-3 h-3 rounded-full ${getStatusColor()} animate-pulse`}></div>
+      <div className={{`w-3 h-3 rounded-full ${getStatusColor()} animate-pulse`}></div>}
       <span className="text-sm text-white">{getStatusText()}</span>
     </div>
   );
