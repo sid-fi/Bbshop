@@ -11,30 +11,26 @@ export function ShopStatus({ language, isHoliday = false }) {
       }
 
       const now = new Date();
-      const day = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+      const day = now.getDay();
       const hour = now.getHours();
       const minutes = now.getMinutes();
       const currentTime = hour + minutes / 60;
 
-      // Sunday = Closed
       if (day === 0) {
         setIsOpen(false);
         return;
       }
 
-      // Monday - Wednesday: 9:00 AM - 6:00 PM (9.0 - 18.0)
       if (day >= 1 && day <= 3) {
         setIsOpen(currentTime >= 9.0 && currentTime < 18.0);
         return;
       }
 
-      // Thursday - Friday: 9:00 AM - 7:00 PM (9.0 - 19.0)
       if (day >= 4 && day <= 5) {
         setIsOpen(currentTime >= 9.0 && currentTime < 19.0);
         return;
       }
 
-      // Saturday: 9:00 AM - 5:00 PM (9.0 - 17.0)
       if (day === 6) {
         setIsOpen(currentTime >= 9.0 && currentTime < 17.0);
         return;
@@ -44,8 +40,7 @@ export function ShopStatus({ language, isHoliday = false }) {
     };
 
     checkIfOpen();
-    const interval = setInterval(checkIfOpen, 60000); // Check every minute
-
+    const interval = setInterval(checkIfOpen, 60000);
     return () => clearInterval(interval);
   }, [isHoliday]);
 
