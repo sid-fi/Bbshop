@@ -8,7 +8,7 @@ const content = {
   fr: {
     title: "Barbier Willy",
     welcome: "Bienvenue chez Barbier Willy",
-    description: "Établi en 1959, nous sommes un barbershop de quartier fondé sur la tradition, la bonne conversation et des coupes qui ne se démodent jamais.",
+    description: "Établi en 1959, nous sommes un barbershop de quartier fondé sur la tradition, la bonne conversation et des coupes qui ne se démodent jamais. Sans réservation ",
     hours: "Heures d'Ouverture",
     schedule: {
       monToWed: "Lundi - Mercredi",
@@ -28,7 +28,7 @@ const content = {
   en: {
     title: "Barbier Willy",
     welcome: "Welcome to Barbier Willy",
-    description: "Established in 1959, we’re a neighbourhood barbershop built on tradition, good conversation, and cuts that never go out of style.",
+    description: "Established in 1959, we’re a neighbourhood barbershop built on tradition, good conversation, and cuts that never go out of style. Walk-in only",
     hours: "Business Hours",
     schedule: {
       monToWed: "Monday - Wednesday",
