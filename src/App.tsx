@@ -199,11 +199,11 @@ export default function App() {
               <span className="text-xs text-gray-400">Visa</span>
             </div>
             <div className="flex flex-col items-center gap-1">
-              <CreditCard size={32} className="text-orange-400" />
+              <CreditCard size={32} className="text-red-400" />
               <span className="text-xs text-gray-400">Mastercard</span>
             </div>
             <div className="flex flex-col items-center gap-1">
-              <CreditCard size={32} className="text-green-400" />
+              <CreditCard size={32} className="text-purple-400" />
               <span className="text-xs text-gray-400">Amex</span>
             </div>
             <div className="flex flex-col items-center gap-1">
